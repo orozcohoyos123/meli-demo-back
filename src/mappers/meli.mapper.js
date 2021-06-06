@@ -40,8 +40,31 @@ const productsList = (data) => {
     }
 }
 
+const productDetail = (data) => {
+    try {
+        if (data.paging.total === 0) return {};
+
+        const categoriesFilter = data.filters.filter((f) => f.id === "category");
+        const categories = categoriesFilter.length > 0 ? categoriesFilter.map(cat => cat.values[0].path_from_root) : [];
+
+        return {
+            author,
+            categories: categories,
+            items: data.results.map(item => ({
+                ...productInfo(item),
+                location: item.address.city_name,
+            })).slice(0, 4),
+        };
+    }
+    catch (err) {
+        console.log(err);
+        throw new Error('Ha ocurrido un error.');
+    }
+}
+
 const meliMapper = {
     productsList,
+    productDetail
 }
 
 module.exports = meliMapper;
