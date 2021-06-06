@@ -18,16 +18,18 @@ const productInfo = (p) => {
     }
 };
 
+const categoryInfo = (data) => {
+    const categoriesFilter = data.filters.filter((f) => f.id === "category");
+    return categoriesFilter.length > 0 ? categoriesFilter.map(cat => cat.values[0].path_from_root) : [];
+}
+
 const productsList = (data) => {
     try {
         if (data.paging.total === 0) return {};
 
-        const categoriesFilter = data.filters.filter((f) => f.id === "category");
-        const categories = categoriesFilter.length > 0 ? categoriesFilter.map(cat => cat.values[0].path_from_root) : [];
-
         return {
             author,
-            categories: categories,
+            categories: categoryInfo(data),
             items: data.results.map(item => ({
                 ...productInfo(item),
                 location: item.address.city_name,
@@ -40,20 +42,16 @@ const productsList = (data) => {
     }
 }
 
-const productDetail = (data) => {
+const productDetail = ({ detail, info, category /*plain_text: {info: plain_text}*/  }) => {
     try {
-        if (data.paging.total === 0) return {};
-
-        const categoriesFilter = data.filters.filter((f) => f.id === "category");
-        const categories = categoriesFilter.length > 0 ? categoriesFilter.map(cat => cat.values[0].path_from_root) : [];
-
         return {
             author,
-            categories: categories,
-            items: data.results.map(item => ({
-                ...productInfo(item),
-                location: item.address.city_name,
-            })).slice(0, 4),
+            categories: category.path_from_root,
+            item: {
+                ...productInfo(detail),
+                sold_quantity: detail.sold_quantity,
+                description: info.plain_text
+            },
         };
     }
     catch (err) {
@@ -64,7 +62,8 @@ const productDetail = (data) => {
 
 const meliMapper = {
     productsList,
-    productDetail
+    productDetail,
+    categoryInfo
 }
 
 module.exports = meliMapper;

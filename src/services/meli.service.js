@@ -5,14 +5,14 @@ const getProductsFiltered = (filter) => {
         return new Promise((resolve, reject) => {
             axios
                 .get(`${process.env.MELI_API_URL}/sites/MLA/search?q=${filter}`)
-                .then(({data}) => {
+                .then(({ data }) => {
                     resolve(data)
                 })
                 .catch((err) => {
                     reject(err)
                 });
         });
-    } 
+    }
     catch (err) {
         console.log(err);
         throw new Error('Ha ocurrido un error.')
@@ -20,19 +20,44 @@ const getProductsFiltered = (filter) => {
 }
 
 const getProductDetail = (id) => {
-    console.log(`${process.env.MELI_API_URL}/items/${id}`)
     try {
         return new Promise((resolve, reject) => {
             axios
-                .get(`${process.env.MELI_API_URL}/items/${id}`)
-                .then(({data}) => {
+                .all([
+                    axios.get(`${process.env.MELI_API_URL}/items/${id}`),
+                    axios.get(`${process.env.MELI_API_URL}/items/${id}/description`)
+                ])
+                .then(axios.spread((productDetail, productInfo) => {
+                    //console.log(productInfo)
+                    resolve({
+                        detail: productDetail.data,
+                        info: productInfo.data
+                    })
+                }))
+                .catch((err) => {
+                    reject(err)
+                });
+        });
+    }
+    catch (err) {
+        console.log(err);
+        throw new Error('Ha ocurrido un error.')
+    }
+}
+
+const getCategoryById = (id) => {
+    try {
+        return new Promise((resolve, reject) => {
+            axios
+                .get(`${process.env.MELI_API_URL}/categories/${id}`)
+                .then(({ data }) => {
                     resolve(data)
                 })
                 .catch((err) => {
                     reject(err)
                 });
         });
-    } 
+    }
     catch (err) {
         console.log(err);
         throw new Error('Ha ocurrido un error.')
@@ -41,7 +66,8 @@ const getProductDetail = (id) => {
 
 const meliApi = {
     getProductsFiltered,
-    getProductDetail
+    getProductDetail,
+    getCategoryById
 }
 
 module.exports = meliApi;

@@ -17,11 +17,16 @@ const getFilteredItems = async (req, res) => {
 
 const getItemById = async (req, res) => {
     try {
-        const products = await meliApi.getProductDetail(req.params.id);
-        //consumir el detalle de los productos y unirlos a la consulta 
-        //const details = meliMapper.productDetail(products);
+        const productDetails = await meliApi.getProductDetail(req.params.id);
+        const category = await meliApi.getCategoryById(productDetails.detail.category_id);
 
-        response.success(req, res, products, StatusCodes.OK);
+        
+        const details = meliMapper.productDetail({
+            ...productDetails,
+            category
+        });
+
+        response.success(req, res, details, StatusCodes.OK);
     }
     catch (err) {
         response.error(req, res, null, StatusCodes.INTERNAL_SERVER_ERROR, err);
