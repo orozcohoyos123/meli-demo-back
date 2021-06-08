@@ -23,30 +23,30 @@
         <div class='clearfix'>
             
             <div class='fl pad1y space-right2'>
-                <span class="strong">30.43% </span>
+                <span class="strong">78.26% </span>
                 <span class="quiet">Statements</span>
-                <span class='fraction'>7/23</span>
+                <span class='fraction'>18/23</span>
             </div>
         
             
             <div class='fl pad1y space-right2'>
-                <span class="strong">0% </span>
+                <span class="strong">50% </span>
                 <span class="quiet">Branches</span>
-                <span class='fraction'>0/4</span>
+                <span class='fraction'>2/4</span>
             </div>
         
             
             <div class='fl pad1y space-right2'>
-                <span class="strong">0% </span>
+                <span class="strong">100% </span>
                 <span class="quiet">Functions</span>
-                <span class='fraction'>0/7</span>
+                <span class='fraction'>7/7</span>
             </div>
         
             
             <div class='fl pad1y space-right2'>
-                <span class="strong">35% </span>
+                <span class="strong">80% </span>
                 <span class="quiet">Lines</span>
-                <span class='fraction'>7/20</span>
+                <span class='fraction'>16/20</span>
             </div>
         
             
@@ -55,7 +55,7 @@
             Press <em>n</em> or <em>j</em> to go to the next uncovered block, <em>b</em>, <em>p</em> or <em>k</em> for the previous block.
         </p>
     </div>
-    <div class='status-line low'></div>
+    <div class='status-line medium'></div>
     <pre><table class="coverage">
 <tr><td class="line-count quiet"><a name='L1'></a><a href='#L1'>1</a>
 <a name='L2'></a><a href='#L2'>2</a>
@@ -131,7 +131,7 @@
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-yes">1x</span>
-<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-yes">51x</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
@@ -146,18 +146,18 @@
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-yes">1x</span>
-<span class="cline-any cline-no">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-yes">1x</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-yes">1x</span>
-<span class="cline-any cline-no">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-yes">1x</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-yes">1x</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-yes">50x</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
@@ -170,8 +170,8 @@
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-yes">1x</span>
-<span class="cline-any cline-no">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-yes">1x</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
@@ -198,8 +198,8 @@
     lastname: "Orozco Hoyos",
 };
 &nbsp;
-const productInfo = <span class="fstat-no" title="function not covered" >(p</span>) =&gt; {
-<span class="cstat-no" title="statement not covered" >    return {</span>
+const productInfo = (p) =&gt; {
+    return {
         id: p.id,
         title: p.title,
         price: {
@@ -213,19 +213,19 @@ const productInfo = <span class="fstat-no" title="function not covered" >(p</spa
     }
 };
 &nbsp;
-const categoryInfo = <span class="fstat-no" title="function not covered" >(d</span>ata) =&gt; {
-    const categoriesFilter = <span class="cstat-no" title="statement not covered" >data.filters.filter(<span class="fstat-no" title="function not covered" >(f</span>) =&gt; <span class="cstat-no" title="statement not covered" >f.id === "category")</span>;</span>
-<span class="cstat-no" title="statement not covered" >    return categoriesFilter.length &gt; 0 ? categoriesFilter.map(<span class="fstat-no" title="function not covered" >ca</span>t =&gt; <span class="cstat-no" title="statement not covered" >cat.values[0].path_from_root)</span> : [];</span>
+const categoryInfo = (data) =&gt; {
+    const categoriesFilter = data.filters.filter((f) =&gt; f.id === "category");
+    return categoriesFilter.length &gt; 0 ? categoriesFilter.map(cat =&gt; cat.values[0].path_from_root) : <span class="branch-1 cbranch-no" title="branch not covered" >[];</span>
 }
 &nbsp;
-const productsList = <span class="fstat-no" title="function not covered" >(d</span>ata) =&gt; {
-<span class="cstat-no" title="statement not covered" >    try {</span>
-<span class="cstat-no" title="statement not covered" >        if (data.paging.total === 0) <span class="cstat-no" title="statement not covered" >return {};</span></span>
+const productsList = (data) =&gt; {
+    try {
+        <span class="missing-if-branch" title="if path not taken" >I</span>if (data.paging.total === 0) <span class="cstat-no" title="statement not covered" >return {};</span>
 &nbsp;
-<span class="cstat-no" title="statement not covered" >        return {</span>
+        return {
             author,
             categories: categoryInfo(data),
-            items: data.results.map(<span class="fstat-no" title="function not covered" >it</span>em =&gt; (<span class="cstat-no" title="statement not covered" >{</span>
+            items: data.results.map(item =&gt; ({
                 ...productInfo(item),
                 location: item.address.city_name,
             })).slice(0, 4),
@@ -237,9 +237,9 @@ const productsList = <span class="fstat-no" title="function not covered" >(d</sp
     }
 }
 &nbsp;
-const productDetail = <span class="fstat-no" title="function not covered" >({</span> detail, info, category /*plain_text: {info: plain_text}*/  }) =&gt; {
-<span class="cstat-no" title="statement not covered" >    try {</span>
-<span class="cstat-no" title="statement not covered" >        return {</span>
+const productDetail = ({ detail, info, category /*plain_text: {info: plain_text}*/  }) =&gt; {
+    try {
+        return {
             author,
             categories: category.path_from_root,
             item: {
@@ -268,7 +268,7 @@ module.exports = meliMapper;</pre></td></tr></table></pre>
             <div class='footer quiet pad2 space-top1 center small'>
                 Code coverage generated by
                 <a href="https://istanbul.js.org/" target="_blank">istanbul</a>
-                at Mon Jun 07 2021 13:49:22 GMT-0500 (Central Daylight Time)
+                at Mon Jun 07 2021 20:08:25 GMT-0500 (Central Daylight Time)
             </div>
         </div>
         <script src="../../prettify.js"></script>

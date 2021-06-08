@@ -3,8 +3,8 @@ const success = (req, res, message, status) => {
 }
 
 const error = (req, res, message, status, log) => {
-    console.log(log || "");
-    res.status(status || 500).send(message || 'Ha ocurrido un error inesperado.');
+    console.log(log);
+    res.status(status).send(message);
 }
 
 const response = {

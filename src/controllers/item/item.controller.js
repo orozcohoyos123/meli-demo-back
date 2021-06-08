@@ -5,6 +5,8 @@ const meliMapper = require('../../mappers/meli.mapper');
 
 const getFilteredItems = async (req, res) => {
     try {
+        if (!req.query.q) return response.success(req, res, {}, StatusCodes.OK);
+
         const products = await meliApi.getProductsFiltered(req.query.q);
         const productsResponse = meliMapper.productsList(products);
 
@@ -19,7 +21,6 @@ const getItemById = async (req, res) => {
     try {
         const productDetails = await meliApi.getProductDetail(req.params.id);
         const category = await meliApi.getCategoryById(productDetails.detail.category_id);
-
         
         const details = meliMapper.productDetail({
             ...productDetails,
