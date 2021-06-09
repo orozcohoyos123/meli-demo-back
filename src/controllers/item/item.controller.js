@@ -9,11 +9,11 @@ const getFilteredItems = async (req, res) => {
 
         const products = await meliApi.getProductsFiltered(req.query.q);
         const productsResponse = meliMapper.productsList(products);
-
+        
         response.success(req, res, productsResponse, StatusCodes.OK);
     }
     catch (err) {
-        response.error(req, res, null, StatusCodes.INTERNAL_SERVER_ERROR, err);
+        response.error(req, res, 'Ha ocurrido un error.', StatusCodes.INTERNAL_SERVER_ERROR, err);
     }
 };
 
@@ -30,7 +30,7 @@ const getItemById = async (req, res) => {
         response.success(req, res, details, StatusCodes.OK);
     }
     catch (err) {
-        response.error(req, res, null, StatusCodes.INTERNAL_SERVER_ERROR, err);
+        response.error(req, res, 'Ha ocurrido un error.', StatusCodes.INTERNAL_SERVER_ERROR, err);
     }
 }
 

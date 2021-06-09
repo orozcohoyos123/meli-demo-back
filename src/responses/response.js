@@ -3,7 +3,7 @@ const success = (req, res, message, status) => {
 }
 
 const error = (req, res, message, status, log) => {
-    console.log(log);
+    //console.log(log.message);
     res.status(status).send(message);
 }
 
