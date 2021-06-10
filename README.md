@@ -31,9 +31,5 @@
 - Para ejecutar las pruebas correr el comando **npm run test**
 - Para visualizar la cobertura las pruebas correr el comando **npm run test:coverage**
 
-## Documentación
-- Para ejecutar las compilación de la documentación ejecutar el comando **npm run docs**
-- Posteriormente en la carpeta **docs** podrá abrir el archivo index.html para verificar la documentación desde un navegador web.
-
 ## Contacto
 Sebastián Orozco Hoyos [LinkedIn](www.linkedin.com/in/sebastian-orozco-hoyos)
