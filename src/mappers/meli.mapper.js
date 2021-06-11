@@ -10,7 +10,7 @@ const productInfo = (p) => {
         price: {
             currency: p.currency_id,
             amount: p.price,
-            decimals: parseFloat((p.price + "").split(".")[1]),
+            decimals: parseFloat(p.price.toFixed(2).split(".")[1]),
         },
         picture: p.thumbnail,
         condition: p.condition,
@@ -42,7 +42,7 @@ const productsList = (data) => {
     }
 }
 
-const productDetail = ({ detail, info, category /*plain_text: {info: plain_text}*/  }) => {
+const productDetail = ({ detail, info, category }) => {
     try {
         return {
             author,
