@@ -1,5 +1,5 @@
 # DEMO MELI - BACK END
-> Parte Back End del test técnico Front End de Mercado Libre.
+> Parte Back End del test técnico Back End de Mercado Libre.
 
 ## Table of Contents
 * [Resumen](#resumen)
