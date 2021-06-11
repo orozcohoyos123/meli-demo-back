@@ -33,4 +33,4 @@
 - Para ver la cobertura gráficamente ingresar a: [https://orozcohoyos123.github.io/meli-demo-back-coverage/](https://orozcohoyos123.github.io/meli-demo-back-coverage/)
 
 ## Contacto
-Sebastián Orozco Hoyos [www.linkedin.com/in/sebastian-orozco-hoyos](www.linkedin.com/in/sebastian-orozco-hoyos)
+Sebastián Orozco Hoyos [LinkedIn](www.linkedin.com/in/sebastian-orozco-hoyos)
