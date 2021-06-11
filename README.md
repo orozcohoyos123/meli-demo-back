@@ -30,6 +30,7 @@
 ## Pruebas
 - Para ejecutar las pruebas correr el comando **npm run test**
 - Para visualizar la cobertura las pruebas correr el comando **npm run test:coverage**
+- Para ver la cobertura gráficamente ingresar a: [https://orozcohoyos123.github.io/meli-demo-back-coverage/](https://orozcohoyos123.github.io/meli-demo-back-coverage/)
 
 ## Contacto
 Sebastián Orozco Hoyos [LinkedIn](www.linkedin.com/in/sebastian-orozco-hoyos)
